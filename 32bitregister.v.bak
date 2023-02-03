@@ -1,0 +1,27 @@
+module dff(q,d,clk,clr, R1in);
+    input d,clk,clr, R1in;
+    output q;
+    reg q;
+    initial
+        q<=1'b0;
+    always @(negedge clk)
+    begin
+        if(~clr)
+            q<=d;
+        else
+            q<=1'b0;
+    end
+endmodule
+Here is the code for 32-bit register:
+
+module reg_32bit(q,d,clk,clr,R1in);
+    input [31:0] d;
+    input clk,clr,R1in;
+    output [31:0] q;
+    genvar j;
+    generate for(j=0;j<32;j=j+1)
+                begin: reg_loop
+                dff d1(q[j],d[j],clk,clr,R1in);
+                end
+    endgenerate
+endmodule

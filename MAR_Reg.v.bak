@@ -1,0 +1,13 @@
+module MAR (
+	 input wire clk
+	,input wire clr
+	,input wire [31:0] data_in
+	,input wire MAR_in
+	,output reg [31:0] data_out
+	);
+  
+  always @(posedge clk) begin
+    if (MAR_in) data_out <= data_in;
+  end
+  
+endmodule

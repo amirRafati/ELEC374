@@ -1,0 +1,13 @@
+module MDR (
+	 input wire clk
+	,input wire clr
+	,input wire [31:0] data_in
+	,input wire MDR_in
+	,output reg [31:0] data_out
+	);
+  
+  always @(posedge clk) begin
+    if (MDR_in) data_out <= data_in;
+  end
+  
+endmodule

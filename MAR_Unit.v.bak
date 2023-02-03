@@ -1,0 +1,8 @@
+module MAR (input clk, input [31:0] data_in, input write, 
+            output reg [31:0] data_out);
+  
+  always @(posedge clk) begin
+    if (write) data_out <= data_in;
+  end
+  
+endmodule
